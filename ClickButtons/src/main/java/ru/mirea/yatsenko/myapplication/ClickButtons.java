@@ -1,0 +1,37 @@
+package ru.mirea.yatsenko.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class ClickButtons extends AppCompatActivity {
+    private TextView tvOut;
+    private Button buttonOK;
+    private Button buttonCancel;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        tvOut = (TextView) findViewById(R.id.tvOut);
+        buttonOK = (Button) findViewById(R.id.btnOK);
+        buttonCancel = (Button) findViewById(R.id.btnCancel);
+
+        View.OnClickListener oclBtnOk = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvOut.setText("Нажата кнопка ОК");
+            }
+        };
+        buttonOK.setOnClickListener(oclBtnOk);
+
+    }
+    public void onCancelButtonClick(View view)
+    {
+        Toast.makeText(this, "Еще один способ!", Toast.LENGTH_SHORT).show();
+    }
+}
